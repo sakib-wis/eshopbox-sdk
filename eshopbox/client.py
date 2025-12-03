@@ -2,7 +2,7 @@
 
 from eshopbox.auth import EShopBoxAuth
 from eshopbox.api.orders import OrdersAPI
-from eshopbox.api.consignments import ConsigmentsAPI
+from eshopbox.api.consignments import ConsignmentsAPI
 from eshopbox.api.inventory import InventoryAPI
 from eshopbox.api.products import ProductsAPI
 from eshopbox.api.rate_calculator import RateCalculatorAPI
@@ -48,7 +48,7 @@ class EShopBoxSDK:
 
         # Initialize API modules
         self.orders = OrdersAPI(workspace, self.auth)
-        self.consignments = ConsigmentsAPI(workspace, self.auth)
+        self.consignments = ConsignmentsAPI(workspace, self.auth)
         self.inventory = InventoryAPI(workspace, self.auth)
         self.products = ProductsAPI(workspace, self.auth)
         self.rate_calculator = RateCalculatorAPI(workspace, self.auth)

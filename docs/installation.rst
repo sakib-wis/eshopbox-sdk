@@ -11,7 +11,7 @@ Or install from source:
 
 .. code-block:: bash
 
-   git clone https://github.com/yourrepo/eshopbox-sdk.git
+   git clone https://github.com/sakib-wis/eshopbox-sdk.git
    cd eshopbox-sdk
    pip install -e .
 
