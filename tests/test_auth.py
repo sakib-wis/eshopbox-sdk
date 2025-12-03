@@ -3,7 +3,6 @@ from eshopbox.exceptions import APIError
 
 
 class TestAuthAPI:
-
     def test_generate_token_success(self, sdk, requests_mock):
         requests_mock.post(
             "https://auth.myeshopbox.com/api/v1/generateToken",
