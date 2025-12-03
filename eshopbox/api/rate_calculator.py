@@ -1,24 +1,13 @@
-"""RateCalculator API module"""
+"""Rate Calculator API module"""
 
-from typing import Dict, Optional, List
+from typing import Dict
 from eshopbox.api.base import BaseAPI
 
 
 class RateCalculatorAPI(BaseAPI):
-    """Handle order-related operations"""
+    """Calculate shipping rates"""
 
-    def get_all(self, page: int = 1, **filters) -> Dict:
-        """
-        Get all rate-calculator with optional filters
-
-        Args:
-            page: Page number for pagination
-            **filters: Additional filter parameters
-
-        Returns:
-            Dict containing order data
-        """
-        url = f"{self.base_url}/api/v1/rate-calculator/erp"
-        params = {"filters": f"page={page}"}
-        params.update(filters)
-        return self._make_request("GET", url, params=params)
+    def calculate(self, rate_data: Dict) -> Dict:
+        """Calculate shipping rate."""
+        url = f"{self.eshopbox_url}/api/rate-calculator"
+        return self._make_request("POST", url, json=rate_data)

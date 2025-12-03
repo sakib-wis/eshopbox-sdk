@@ -1,85 +1,30 @@
 """Products API module"""
 
-from typing import Dict, Optional, List
+from typing import Dict
 from eshopbox.api.base import BaseAPI
 
 
 class ProductsAPI(BaseAPI):
-    """Handle order-related operations"""
+    """Handle product-related operations"""
 
     def get_all(self, page: int = 1, **filters) -> Dict:
-        """
-        Get all products with optional filters
-
-        Args:
-            page: Page number for pagination
-            **filters: Additional filter parameters
-
-        Returns:
-            Dict containing order data
-        """
-        url = f"{self.base_url}/api/v1/products/erp"
+        """Fetch all products with optional filters."""
+        url = f"{self.base_url}/api/v1/products"
         params = {"filters": f"page={page}"}
         params.update(filters)
         return self._make_request("GET", url, params=params)
 
-    def get(self, customer_order_number: str) -> Dict:
-        """
-        Get a specific order by customer order number
-
-        Args:
-            customer_order_number: Unique order identifier
-
-        Returns:
-            Dict containing order details
-        """
-        url = f"{self.eshopbox_url}/api/order/{customer_order_number}"
+    def get(self, sku: str) -> Dict:
+        """Fetch a single product by SKU."""
+        url = f"{self.eshopbox_url}/api/product/{sku}"
         return self._make_request("GET", url)
 
-    def create(self, order_data: Dict) -> Dict:
-        """
-        Create a new order
+    def create(self, product_data: Dict) -> Dict:
+        """Create a new product."""
+        url = f"{self.eshopbox_url}/api/product"
+        return self._make_request("POST", url, json=product_data)
 
-        Args:
-            order_data: Order information including items, addresses, etc.
-
-        Returns:
-            Dict containing created order details
-
-        Example:
-            >>> order = {
-            ...     "externalChannelID": "CH1234",
-            ...     "customerOrderNumber": "ORD123",
-            ...     "items": [...],
-            ...     "shippingAddress": {...}
-            ... }
-            >>> result = api.products.create(order)
-        """
-        url = f"{self.eshopbox_url}/api/order"
-        return self._make_request("POST", url, json=order_data)
-
-    def cancel(self, cancel_data: Dict) -> Dict:
-        """
-        Cancel an order
-
-        Args:
-            cancel_data: Cancellation details including order number and reason
-
-        Returns:
-            Dict containing cancellation confirmation
-        """
-        url = f"{self.eshopbox_url}/api/cancel-order"
-        return self._make_request("POST", url, json=cancel_data)
-
-    def get_invoice(self, order_number: str) -> Dict:
-        """
-        Get invoice details for an order
-
-        Args:
-            order_number: Order number
-
-        Returns:
-            Dict containing invoice details
-        """
-        url = f"{self.eshopbox_url}/api/invoice-detail/{order_number}"
-        return self._make_request("GET", url)
+    def update(self, sku: str, product_data: Dict) -> Dict:
+        """Update an existing product."""
+        url = f"{self.eshopbox_url}/api/product/{sku}"
+        return self._make_request("PUT", url, json=product_data)

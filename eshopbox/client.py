@@ -2,13 +2,21 @@
 
 from eshopbox.auth import EShopBoxAuth
 from eshopbox.api.orders import OrdersAPI
+from eshopbox.api.consignments import ConsigmentsAPI
+from eshopbox.api.inventory import InventoryAPI
+from eshopbox.api.products import ProductsAPI
+from eshopbox.api.rate_calculator import RateCalculatorAPI
+from eshopbox.api.returns import ReturnsAPI
+from eshopbox.api.serviceability import ServiceabilityAPI
+from eshopbox.api.shipments import ShipmentsAPI
+from eshopbox.api.webhooks import WebhooksAPI
 # Import other API modules...
 
 
 class EShopBoxSDK:
     """
     Main SDK class for EShopBox API
-    
+
     Example:
         >>> sdk = EShopBoxSDK(
         ...     workspace="myshop",
@@ -18,7 +26,7 @@ class EShopBoxSDK:
         ... )
         >>> orders = sdk.orders.get_all()
     """
-    
+
     def __init__(
         self,
         workspace: str,
@@ -28,7 +36,7 @@ class EShopBoxSDK:
     ):
         """
         Initialize EShopBox SDK
-        
+
         Args:
             workspace: Your EShopBox workspace name
             client_id: Your API client ID
@@ -37,8 +45,14 @@ class EShopBoxSDK:
         """
         self.workspace = workspace
         self.auth = EShopBoxAuth(client_id, client_secret, refresh_token)
-        
+
         # Initialize API modules
         self.orders = OrdersAPI(workspace, self.auth)
-        # Initialize other APIs...
-
+        self.consignments = ConsigmentsAPI(workspace, self.auth)
+        self.inventory = InventoryAPI(workspace, self.auth)
+        self.products = ProductsAPI(workspace, self.auth)
+        self.rate_calculator = RateCalculatorAPI(workspace, self.auth)
+        self.returns = ReturnsAPI(workspace, self.auth)
+        self.serviceability = ServiceabilityAPI(workspace, self.auth)
+        self.shipments = ShipmentsAPI(workspace, self.auth)
+        self.webhooks = WebhooksAPI(workspace, self.auth)
