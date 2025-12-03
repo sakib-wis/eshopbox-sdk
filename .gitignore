@@ -1,10 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-<<<<<<< HEAD
-*.py[cod]
-=======
 *.py[codz]
->>>>>>> 14b3aa54119e4a5532a5200fbdd69307bcb46641
 *$py.class
 
 # C extensions
@@ -24,19 +20,6 @@ parts/
 sdist/
 var/
 wheels/
-<<<<<<< HEAD
-*.egg-info/
-.installed.cfg
-*.egg
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-=======
 share/python-wheels/
 *.egg-info/
 .installed.cfg
@@ -57,34 +40,12 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 .nox/
->>>>>>> 14b3aa54119e4a5532a5200fbdd69307bcb46641
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
 *.cover
-<<<<<<< HEAD
-.hypothesis/
-.pytest_cache/
-
-# Virtual environments
-venv/
-ENV/
-env/
-.venv
-
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
-=======
 *.py.cover
 .hypothesis/
 .pytest_cache/
@@ -106,14 +67,10 @@ instance/
 
 # Scrapy stuff:
 .scrapy
->>>>>>> 14b3aa54119e4a5532a5200fbdd69307bcb46641
 
 # Sphinx documentation
 docs/_build/
 
-<<<<<<< HEAD
-# MyPy
-=======
 # PyBuilder
 .pybuilder/
 target/
@@ -198,16 +155,10 @@ venv.bak/
 /site
 
 # mypy
->>>>>>> 14b3aa54119e4a5532a5200fbdd69307bcb46641
 .mypy_cache/
 .dmypy.json
 dmypy.json
 
-<<<<<<< HEAD
-# Environment variables
-.env
-.env.local
-=======
 # Pyre type checker
 .pyre/
 
@@ -254,4 +205,3 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
->>>>>>> 14b3aa54119e4a5532a5200fbdd69307bcb46641
