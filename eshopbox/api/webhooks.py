@@ -9,15 +9,20 @@ class WebhooksAPI(BaseAPI):
 
     def list(self) -> Dict:
         """List all registered webhooks."""
-        url = f"{self.eshopbox_url}/api/webhooks"
+        url = f"{self.base_url}/api/platform/v1/client-webhook"
         return self._make_request("GET", url)
 
     def create(self, webhook_data: Dict) -> Dict:
         """Create a webhook."""
-        url = f"{self.eshopbox_url}/api/webhook"
+        url = f"{self.base_url}/api/v1/webhook"
         return self._make_request("POST", url, json=webhook_data)
 
-    def delete(self, webhook_id: str) -> Dict:
+    def get(self, webhook_id: str) -> Dict:
         """Delete a webhook."""
-        url = f"{self.eshopbox_url}/api/webhook/{webhook_id}"
-        return self._make_request("DELETE", url)
+        url = f"{self.base_url}/api/platform/v1/client-webhook/{webhook_id}"
+        return self._make_request("GET", url)
+
+    def update(self, webhook_id: str) -> Dict:
+        """Delete a webhook."""
+        url = f"{self.base_url}/api/platform/v1/client-webhook"
+        return self._make_request("PUT", url)

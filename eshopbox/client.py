@@ -10,6 +10,9 @@ from eshopbox.api.returns import ReturnsAPI
 from eshopbox.api.serviceability import ServiceabilityAPI
 from eshopbox.api.shipments import ShipmentsAPI
 from eshopbox.api.webhooks import WebhooksAPI
+from eshopbox.api.order_status_update import OrderStatusUpdateAPI
+from eshopbox.api.wrapper import WrapperAPI
+from eshopbox.api.payments import PaymentsAPI
 # Import other API modules...
 
 
@@ -55,4 +58,7 @@ class EShopBoxSDK:
         self.returns = ReturnsAPI(workspace, self.auth)
         self.serviceability = ServiceabilityAPI(workspace, self.auth)
         self.shipments = ShipmentsAPI(workspace, self.auth)
+        self.order_status_update = OrderStatusUpdateAPI(workspace, self.auth)
         self.webhooks = WebhooksAPI(workspace, self.auth)
+        self.wrapper = WrapperAPI(workspace, self.auth)
+        self.payments = PaymentsAPI(workspace, self.auth)

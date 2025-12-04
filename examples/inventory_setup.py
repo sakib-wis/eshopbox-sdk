@@ -3,14 +3,17 @@ Example: Manage Inventory using EShopBox SDK
 """
 
 from eshopbox import EShopBoxSDK
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 def main():
     sdk = EShopBoxSDK(
-        workspace="your_workspace",
-        client_id="CLIENT_ID",
-        client_secret="CLIENT_SECRET",
-        refresh_token="REFRESH_TOKEN"
+        workspace=os.getenv('ESHOPBOX_WORKSPACE', ''),
+        client_id=os.getenv('ESHOPBOX_CLIENT_ID', ''),
+        client_secret=os.getenv('ESHOPBOX_SECRET_ID', ''),
+        refresh_token=os.getenv('ESHOPBOX_REFRESH_TOKEN', '')
     )
 
     sku = "SKU1234"
