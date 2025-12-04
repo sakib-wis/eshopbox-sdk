@@ -72,42 +72,42 @@ class SettingsAPI(BaseAPI):
         url = f"{self.base_url}/api/v1/subscription/{id}"
         return self._make_request("PUT", url, json=data)
 
-    def create_contact(self, params: Dict) -> Dict:
+    def create_contact(self, data: Dict) -> Dict:
         """Update an existing product."""
-        url = f"{self.base_url}/api/v1/productListing"
+        url = f"{self.base_url}/api/v1/contact"
+        return self._make_request("POST", url, json=data)
+
+    def get_all_contact(self) -> Dict:
+        """Update an existing product."""
+        url = f"{self.base_url}/api/v1/contacts"
+        return self._make_request("GET", url)
+
+    def get_contact(self, params: Dict = {}) -> Dict:
+        """Update an existing product."""
+        url = f"{self.base_url}/api/v1/contact"
         return self._make_request("GET", url, params=params)
 
-    def get_all_contact(self, params: Dict) -> Dict:
+    def update_contact(self, contactCode: str, data: Dict) -> Dict:
         """Update an existing product."""
-        url = f"{self.base_url}/api/v1/productListing"
-        return self._make_request("GET", url, params=params)
+        url = f"{self.base_url}/api/v1/contact/{contactCode}"
+        return self._make_request("PUT", url, json=data)
 
-    def get_contact(self, params: Dict) -> Dict:
+    def create_team_member(self, data: Dict) -> Dict:
         """Update an existing product."""
-        url = f"{self.base_url}/api/v1/productListing"
-        return self._make_request("GET", url, params=params)
+        url = f"{self.base_url}/api/v1/user-account-mapping"
+        return self._make_request("POST", url, json=data)
 
-    def update_contact(self, params: Dict) -> Dict:
+    def update_team_member(self, id, data: Dict) -> Dict:
         """Update an existing product."""
-        url = f"{self.base_url}/api/v1/productListing"
-        return self._make_request("GET", url, params=params)
+        url = f"{self.base_url}/api/v1/user-account-mapping/{id}"
+        return self._make_request("PUT", url, json=data)
 
-    def create_team_member(self, params: Dict) -> Dict:
+    def get_team_member(self, id,) -> Dict:
         """Update an existing product."""
-        url = f"{self.base_url}/api/v1/productListing"
-        return self._make_request("GET", url, params=params)
+        url = f"{self.base_url}/api/v1/user-account-mapping/{id}"
+        return self._make_request("GET", url)
 
-    def update_team_member(self, params: Dict) -> Dict:
+    def get_all_team_member(self) -> Dict:
         """Update an existing product."""
-        url = f"{self.base_url}/api/v1/productListing"
-        return self._make_request("GET", url, params=params)
-
-    def get_team_member(self, params: Dict) -> Dict:
-        """Update an existing product."""
-        url = f"{self.base_url}/api/v1/productListing"
-        return self._make_request("GET", url, params=params)
-
-    def get_all_team_member(self, params: Dict) -> Dict:
-        """Update an existing product."""
-        url = f"{self.base_url}/api/v1/productListing"
-        return self._make_request("GET", url, params=params)
+        url = f"{self.base_url}/api/v1/user"
+        return self._make_request("GET", url)
