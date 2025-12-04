@@ -3,7 +3,6 @@
 from eshopbox.auth import EShopBoxAuth
 from eshopbox.api.orders import OrdersAPI
 from eshopbox.api.consignments import ConsignmentsAPI
-from eshopbox.api.inventory import InventoryAPI
 from eshopbox.api.products import ProductsAPI
 from eshopbox.api.rate_calculator import RateCalculatorAPI
 from eshopbox.api.returns import ReturnsAPI
@@ -13,6 +12,7 @@ from eshopbox.api.webhooks import WebhooksAPI
 from eshopbox.api.order_status_update import OrderStatusUpdateAPI
 from eshopbox.api.wrapper import WrapperAPI
 from eshopbox.api.payments import PaymentsAPI
+from eshopbox.api.settings import SettingsAPI
 # Import other API modules...
 
 
@@ -52,7 +52,6 @@ class EShopBoxSDK:
         # Initialize API modules
         self.orders = OrdersAPI(workspace, self.auth)
         self.consignments = ConsignmentsAPI(workspace, self.auth)
-        self.inventory = InventoryAPI(workspace, self.auth)
         self.products = ProductsAPI(workspace, self.auth)
         self.rate_calculator = RateCalculatorAPI(workspace, self.auth)
         self.returns = ReturnsAPI(workspace, self.auth)
@@ -62,3 +61,4 @@ class EShopBoxSDK:
         self.webhooks = WebhooksAPI(workspace, self.auth)
         self.wrapper = WrapperAPI(workspace, self.auth)
         self.payments = PaymentsAPI(workspace, self.auth)
+        self.settings = SettingsAPI(workspace, self.auth)
