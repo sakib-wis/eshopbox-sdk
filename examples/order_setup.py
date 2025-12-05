@@ -43,8 +43,8 @@ def create_order(sdk):
             "gstin": "27ABCGN5397X1XX",
             "countryCode": "IN",
             "countryName": "India",
-            "contactPhone": "8954664647",
-            "email": "sakibwis.wis@gmail.com"
+            "contactPhone": "xxxxxxxxxx",
+            "email": "xxxxxxxxxxxxxxx@gmail.com"
         },
         "billingAddress": {
             "customerName": "Sakib Malik",
@@ -55,8 +55,8 @@ def create_order(sdk):
             "postalCode": "160071",
             "countryCode": "IN",
             "countryName": "India",
-            "contactPhone": "8954664647",
-            "email": "sakibwis.wis@gmail.com"
+            "contactPhone": "xxxxxxxxxx",
+            "email": "xxxxxxxxxxxxxxx@gmail.com"
         },
         "items": [
             {
@@ -96,7 +96,7 @@ def cancel_order(sdk):
     cancel_data = {
         "externalChannelID": os.getenv('ESHOPBOX_EXTERNAL_CHANNEL_ID'),
         "customerOrderNumber": "OD119208447831346002",
-        "actor": "sakibwis.wis@gmail.com",
+        "actor": "xxxxxxxxxxxxxxx@gmail.com",
         "reason": "Cancelled By Customer",
         "cancellationTime": "2018-07-08 22:00:05",
         "items": [

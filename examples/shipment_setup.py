@@ -62,8 +62,8 @@ def create_shipment(sdk):
         "status": "intransit",
         "remarks": "shipment picked up from client location",
         "customerName": "Sakib Malik",
-        "customerContactNumber": "8954664647",
-        "email": "sakibwis.wis@gmail.com",
+        "customerContactNumber": "xxxxxxxxxx",
+        "email": "xxxxxxxxxxxxxxx@gmail.com",
         "channelSlug": "blackberrys",
         "status_updated_at": "2020-03-19 14:50:29",
         "status_log": {
@@ -82,8 +82,8 @@ def create_shipment(sdk):
             "postalCode": "160071",
             "countryCode": "IN",
             "countryName": "India",
-            "contactPhone": "8954664647",
-            "email": "sakibwis.wis@gmail.com"
+            "contactPhone": "xxxxxxxxxx",
+            "email": "xxxxxxxxxxxxxxx@gmail.com"
         },
         "id": 1583574,
         "isCOD": "1",

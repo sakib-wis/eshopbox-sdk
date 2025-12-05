@@ -32,8 +32,8 @@ def order(sdk):
             "postalCode": "160071",
             "countryCode": "IN",
             "country": "India",
-            "contactPhone": "8954664647",
-            "email": "sakibwis.wis@gmail.com",
+            "contactPhone": "xxxxxxxxxx",
+            "email": "xxxxxxxxxxxxxxx@gmail.com",
             "gstin": "344633257673"
         },
         "billingIsShipping": True,
@@ -46,8 +46,8 @@ def order(sdk):
             "postalCode": "160071",
             "countryCode": "IN",
             "countryName": "India",
-            "contactPhone": "8954664647",
-            "email": "sakibwis.wis@gmail.com"
+            "contactPhone": "xxxxxxxxxx",
+            "email": "xxxxxxxxxxxxxxx@gmail.com"
         },
         "items": [
             {
