@@ -5,4 +5,4 @@ rm -rf dist/
 python -m build
 
 # upload
-twine upload --repository testpypi dist/*
+twine upload --repository testpypi dist/* --verbose
