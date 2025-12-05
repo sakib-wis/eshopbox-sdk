@@ -128,6 +128,21 @@ def get_fc_submission(sdk):
     print(response)
 
 
+def create_contact(sdk):
+    data = {
+        "data": {
+            "contactCode": "1234",
+            "contactName": "ABC",
+            "contactEmail": "XXXXXXXXXXXXX",
+            "contactPhone": "1234567890",
+            "contactType": "seller",
+            "contactAddress": "ABC"
+        }
+    }
+    response = sdk.settings.create_contact(data)
+    print(response)
+
+
 def update_fc_submission(sdk):
     data = {
         "data": {
@@ -144,6 +159,72 @@ def update_fc_submission(sdk):
         }
     }
     response = sdk.settings.update_fc_submission(1, data)
+    print(response)
+
+
+def get_all_contact(sdk):
+    response = sdk.settings.get_all_contact()
+    print(response)
+
+
+def get_contact(sdk):
+    params = {
+        "contactCode": "1234"
+    }
+    response = sdk.settings.get_contact(params)
+    print(response)
+
+
+def update_contact(sdk):
+    data = {
+        "data": {
+            "contactCode": "1234",
+            "contactName": "ABC",
+            "contactEmail": "XXXXXXXXXXXXX",
+            "contactPhone": "1234567890",
+            "contactType": "seller",
+            "contactAddress": "ABC"
+        }
+    }
+    response = sdk.settings.update_contact("1234", data)
+    print(response)
+
+
+def create_team_member(sdk):
+    data = {
+        "data": {
+            "userId": 1,
+            "portalId": 1,
+            "integrationModelId": 1,
+            "channelAccountId": 1,
+            "warehouseId": 1
+        }
+    }
+    response = sdk.settings.create_team_member(data)
+    print(response)
+
+
+def update_team_member(sdk):
+    data = {
+        "data": {
+            "userId": 1,
+            "portalId": 1,
+            "integrationModelId": 1,
+            "channelAccountId": 1,
+            "warehouseId": 1
+        }
+    }
+    response = sdk.settings.update_team_member(1, data)
+    print(response)
+
+
+def get_team_member(sdk):
+    response = sdk.settings.get_team_member(1)
+    print(response)
+
+
+def get_all_team_member(sdk):
+    response = sdk.settings.get_all_team_member()
     print(response)
 
 
@@ -168,7 +249,15 @@ def main():
     # create_fc_submission(sdk)
     # get_all_fc_submission(sdk)
     # get_fc_submission(sdk)
-    update_fc_submission(sdk)
+    # update_fc_submission(sdk)
+    # create_contact(sdk)
+    # get_all_contact(sdk)
+    # get_contact(sdk)
+    # update_contact(sdk)
+    # create_team_member(sdk)
+    # update_team_member(sdk)
+    # get_team_member(sdk)
+    get_all_team_member(sdk)
 
 
 if __name__ == "__main__":
