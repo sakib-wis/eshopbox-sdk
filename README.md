@@ -2,6 +2,10 @@
 
 A comprehensive Python SDK for integrating with EShopBox Shipping APIs.
 
+See the official [docs] for more info.
+
+[docs]: https://eshop.gitbook.io/eshopbox-developers
+
 ## Installation
 
 ```bash
