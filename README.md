@@ -339,7 +339,7 @@ if __name__ == "__main__":
 
 ```
 """
-Example: Setup Wrapper using EShopBox SDK
+Example: Setup Payment using EShopBox SDK
 """
 
 from eshopbox import EShopBoxSDK
@@ -582,7 +582,7 @@ if __name__ == "__main__":
 
 ```
 """
-Example: Setup Wrapper using EShopBox SDK
+Example: Setup Products using EShopBox SDK
 """
 
 from eshopbox import EShopBoxSDK
@@ -1449,6 +1449,28 @@ def tracking_details(sdk):
     print("Response: ", response)
 
 
+def webhook_register(sdk):
+    payload = {
+        "resource": "channel_inventory",
+        "eventType": "POST",
+        "eventSubType": "updated",
+        "version": "v1",
+        "externalChannelID": "TEST",
+        "webhookUrl": "https://webhook.testurl.com/fake-subscription-url2",
+        "webhookMethod": "POST",
+        "webhookHeaders": {
+            "x-api-key": "test1234",
+            "sample-header-key": "test875876",
+            "authorization": "Bearer abcdef123456",
+            "custom-header": "customValue",
+            "content-type": "application/json"
+        }
+    }
+
+    response = sdk.wrapper.webhook_register(payload, ProxyHost="your_proxy_host_value")
+    print("Response: ", response)
+
+
 def main():
     # Initialize SDK
     sdk = EShopBoxSDK(
@@ -1460,11 +1482,13 @@ def main():
     # order(sdk)
     # shipping_return(sdk)
     # cancel_tracking(sdk)
-    tracking_details(sdk)
+    # tracking_details(sdk)
+    webhook_register(sdk)
 
 
 if __name__ == "__main__":
     main()
+
 
 ```
 
@@ -1472,7 +1496,7 @@ if __name__ == "__main__":
 
 ```
 """
-Example: Setup Wrapper using EShopBox SDK
+Example: Setup Settings using EShopBox SDK
 """
 
 from eshopbox import EShopBoxSDK
@@ -1738,7 +1762,30 @@ if __name__ == "__main__":
 
 
 ```
+
 ## License
 
 MIT License
+
+
+Copyright (c) 2025 Sakib Malik
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 ```

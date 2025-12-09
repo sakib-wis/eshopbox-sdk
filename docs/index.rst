@@ -3,6 +3,11 @@ EShopBox SDK Documentation
 
 A Python SDK for interacting with the EShopBox API.
 
+
+See the official docs_ for more info.
+
+.. _docs: https://eshop.gitbook.io/eshopbox-developers/
+
 Contents
 --------
 

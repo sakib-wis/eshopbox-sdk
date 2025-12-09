@@ -231,9 +231,31 @@ def cancel_tracking(sdk):
 
 def tracking_details(sdk):
     params = {
-        "trackingIds": "OD119208447831346000-4380-3659",        
+        "trackingIds": "OD119208447831346000-4380-3659",
     }
     response = sdk.wrapper.tracking_details(params)
+    print("Response: ", response)
+
+
+def webhook_register(sdk):
+    payload = {
+        "resource": "channel_inventory",
+        "eventType": "POST",
+        "eventSubType": "updated",
+        "version": "v1",
+        "externalChannelID": "TEST",
+        "webhookUrl": "https://webhook.testurl.com/fake-subscription-url2",
+        "webhookMethod": "POST",
+        "webhookHeaders": {
+            "x-api-key": "test1234",
+            "sample-header-key": "test875876",
+            "authorization": "Bearer abcdef123456",
+            "custom-header": "customValue",
+            "content-type": "application/json"
+        }
+    }
+
+    response = sdk.wrapper.webhook_register(payload, ProxyHost="your_proxy_host_value")
     print("Response: ", response)
 
 
@@ -248,7 +270,8 @@ def main():
     # order(sdk)
     # shipping_return(sdk)
     # cancel_tracking(sdk)
-    tracking_details(sdk)
+    # tracking_details(sdk)
+    webhook_register(sdk)
 
 
 if __name__ == "__main__":

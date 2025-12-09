@@ -1,5 +1,5 @@
 """
-Example: Setup Wrapper using EShopBox SDK
+Example: Setup Payment using EShopBox SDK
 """
 
 from eshopbox import EShopBoxSDK
