@@ -22,3 +22,10 @@ Contents
    api/products
    api/shipments
    api/inventory
+   api/order_status_update
+   api/payments
+   api/rate_calculator
+   api/serviceability
+   api/settings
+   api/webhook
+   api/wrapper
