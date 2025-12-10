@@ -21,3 +21,4 @@ Contents
    api/orders
    api/products
    api/shipments
+   api/inventory
