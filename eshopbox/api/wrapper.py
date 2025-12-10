@@ -46,7 +46,7 @@ class WrapperAPI(BaseAPI):
         url = f"{self.eshopbox_url}/api/v1/shipping/cancel"
         return self._make_request("POST", url, json=payload)
 
-    def tracking_details(self, params: Dict) -> Dict:
+    def tracking_details(self, trackingIds: str) -> Dict:
         """
         Get tracking details for a shipment
 
@@ -56,8 +56,8 @@ class WrapperAPI(BaseAPI):
         Returns:
             Dict containing tracking information
         """
-        url = f"{self.eshopbox_url}/api/v1/shipping/trackingDetails"
-        return self._make_request("GET", url, params=params)
+        url = f"{self.eshopbox_url}/api/v1/shipping/trackingDetails?={trackingIds}"
+        return self._make_request("GET", url)
 
     def webhook_register(self, body: Dict, ProxyHost: str) -> Dict:
         """

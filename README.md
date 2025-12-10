@@ -1446,10 +1446,7 @@ def cancel_tracking(sdk):
 
 
 def tracking_details(sdk):
-    params = {
-        "trackingIds": "OD119208447831346000-4380-3659",
-    }
-    response = sdk.wrapper.tracking_details(params)
+    response = sdk.wrapper.tracking_details("OD119208447831346000-4380-3659")
     print("Response: ", response)
 
 
