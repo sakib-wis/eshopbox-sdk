@@ -26,5 +26,5 @@ build>=0.10
 python-dotenv
 
 # cache
-redis>=7.1.0
+redis>=4.0.0
 
