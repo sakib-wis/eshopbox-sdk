@@ -25,5 +25,7 @@ class ShipmentsAPI(BaseAPI):
 
     def update(self, externalShipmentID: str, status: str) -> Dict:
         """Create a shipment."""
-        url = f"{self.eshopbox_url}/api/order/shipment/{externalShipmentID}/mark{status}"
+        url = (
+            f"{self.eshopbox_url}/api/order/shipment/{externalShipmentID}/mark{status}"
+        )
         return self._make_request("PUT", url)

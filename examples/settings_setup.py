@@ -5,6 +5,7 @@ Example: Setup Settings using EShopBox SDK
 from eshopbox import EShopBoxSDK
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 
@@ -14,21 +15,13 @@ def get_portals(sdk):
 
 
 def create_workspace(sdk):
-    data = {
-        "data": {
-            "accountSlug": "eshop",
-            "accountName": "Eshopbox"
-        }
-    }
+    data = {"data": {"accountSlug": "eshop", "accountName": "Eshopbox"}}
     response = sdk.settings.create_workspace(data)
     print(response)
 
 
 def get_all_workspace(sdk):
-    params = {
-        "page": 1,
-        "limit": 10
-    }
+    params = {"page": 1, "limit": 10}
     response = sdk.settings.get_all_workspace(params)
     print(response)
 
@@ -39,12 +32,7 @@ def get_workspace(sdk):
 
 
 def update_workspace(sdk):
-    data = {
-        "data": {
-            "accountSlug": "eshop",
-            "accountName": "XXXXXXXX"
-        }
-    }
+    data = {"data": {"accountSlug": "eshop", "accountName": "XXXXXXXX"}}
     response = sdk.settings.update_workspace(data)
     print(response)
 
@@ -55,14 +43,7 @@ def create_sales_channel(sdk):
             "portalId": 1,
             "integrationModelId": 1,
             "channelAccountId": 1,
-            "fulfillmentChannels": [
-                {
-                    "warehouseId": 1
-                },
-                {
-                    "warehouseId": 2
-                }
-            ]
+            "fulfillmentChannels": [{"warehouseId": 1}, {"warehouseId": 2}],
         }
     }
     response = sdk.settings.create_sales_channel(data)
@@ -75,14 +56,7 @@ def update_sales_channel(sdk):
             "portalId": 1,
             "integrationModelId": 1,
             "channelAccountId": 1,
-            "fulfillmentChannels": [
-                {
-                    "warehouseId": 1
-                },
-                {
-                    "warehouseId": 2
-                }
-            ]
+            "fulfillmentChannels": [{"warehouseId": 1}, {"warehouseId": 2}],
         }
     }
     response = sdk.settings.update_sales_channel(1, data)
@@ -110,8 +84,8 @@ def create_fc_submission(sdk):
             "requestDocuments": {
                 "gstCertificateUrl": "http://abc.com/1.jpg",
                 "signatureUrl": "http://abc.com/2.jpg",
-                "companyLogoUrl": "http://abc.com/3.jpg"
-            }
+                "companyLogoUrl": "http://abc.com/3.jpg",
+            },
         }
     }
     response = sdk.settings.create_fc_submission(data)
@@ -136,7 +110,7 @@ def create_contact(sdk):
             "contactEmail": "XXXXXXXXXXXXX",
             "contactPhone": "1234567890",
             "contactType": "seller",
-            "contactAddress": "ABC"
+            "contactAddress": "ABC",
         }
     }
     response = sdk.settings.create_contact(data)
@@ -154,8 +128,8 @@ def update_fc_submission(sdk):
             "requestDocuments": {
                 "gstCertificateUrl": "XXXXXXXXXXXXXXXXXXXX",
                 "signatureUrl": "XXXXXXXXXXXXXXXXXXXX",
-                "companyLogoUrl": "XXXXXXXXXXXXXXXXXXXX"
-            }
+                "companyLogoUrl": "XXXXXXXXXXXXXXXXXXXX",
+            },
         }
     }
     response = sdk.settings.update_fc_submission(1, data)
@@ -168,9 +142,7 @@ def get_all_contact(sdk):
 
 
 def get_contact(sdk):
-    params = {
-        "contactCode": "1234"
-    }
+    params = {"contactCode": "1234"}
     response = sdk.settings.get_contact(params)
     print(response)
 
@@ -183,7 +155,7 @@ def update_contact(sdk):
             "contactEmail": "XXXXXXXXXXXXX",
             "contactPhone": "1234567890",
             "contactType": "seller",
-            "contactAddress": "ABC"
+            "contactAddress": "ABC",
         }
     }
     response = sdk.settings.update_contact("1234", data)
@@ -197,7 +169,7 @@ def create_team_member(sdk):
             "portalId": 1,
             "integrationModelId": 1,
             "channelAccountId": 1,
-            "warehouseId": 1
+            "warehouseId": 1,
         }
     }
     response = sdk.settings.create_team_member(data)
@@ -211,7 +183,7 @@ def update_team_member(sdk):
             "portalId": 1,
             "integrationModelId": 1,
             "channelAccountId": 1,
-            "warehouseId": 1
+            "warehouseId": 1,
         }
     }
     response = sdk.settings.update_team_member(1, data)
@@ -231,10 +203,10 @@ def get_all_team_member(sdk):
 def main():
     # Initialize SDK
     sdk = EShopBoxSDK(
-        workspace=os.getenv('ESHOPBOX_WORKSPACE', ''),
-        client_id=os.getenv('ESHOPBOX_CLIENT_ID', ''),
-        client_secret=os.getenv('ESHOPBOX_SECRET_ID', ''),
-        refresh_token=os.getenv('ESHOPBOX_REFRESH_TOKEN', '')
+        workspace=os.getenv("ESHOPBOX_WORKSPACE", ""),
+        client_id=os.getenv("ESHOPBOX_CLIENT_ID", ""),
+        client_secret=os.getenv("ESHOPBOX_SECRET_ID", ""),
+        refresh_token=os.getenv("ESHOPBOX_REFRESH_TOKEN", ""),
     )
 
     # get_portals(sdk)

@@ -5,6 +5,7 @@ Example: Setup Rate Calculator using EShopBox SDK
 import os
 from eshopbox.client import EShopBoxSDK
 from dotenv import load_dotenv
+
 load_dotenv()
 
 
@@ -18,7 +19,7 @@ def rate_calculator(sdk):
         "width": "12",
         "height": "33",
         "paymentMethod": "Prepaid",
-        "doorstepQc": False
+        "doorstepQc": False,
     }
     response = sdk.rate_calculator.calculate(payload)
     print("Response: ", response)
@@ -26,10 +27,10 @@ def rate_calculator(sdk):
 
 def main():
     sdk = EShopBoxSDK(
-        workspace=os.getenv('ESHOPBOX_WORKSPACE', ''),
-        client_id=os.getenv('ESHOPBOX_CLIENT_ID', ''),
-        client_secret=os.getenv('ESHOPBOX_SECRET_ID', ''),
-        refresh_token=os.getenv('ESHOPBOX_REFRESH_TOKEN', '')
+        workspace=os.getenv("ESHOPBOX_WORKSPACE", ""),
+        client_id=os.getenv("ESHOPBOX_CLIENT_ID", ""),
+        client_secret=os.getenv("ESHOPBOX_SECRET_ID", ""),
+        refresh_token=os.getenv("ESHOPBOX_REFRESH_TOKEN", ""),
     )
     rate_calculator(sdk)
 

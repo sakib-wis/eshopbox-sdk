@@ -4,7 +4,6 @@ from typing import Optional, List
 from pydantic import BaseModel, Field
 
 from eshopbox.models.address import Address
-from eshopbox.models.product import Product
 
 
 class OrderItem(BaseModel):
@@ -27,7 +26,9 @@ class PaymentInfo(BaseModel):
 class Order(BaseModel):
     """Represents an order."""
 
-    customer_order_number: str = Field(..., description="Unique external customer order number")
+    customer_order_number: str = Field(
+        ..., description="Unique external customer order number"
+    )
     channel_id: str = Field(..., description="Channel identifier")
 
     shipping_address: Address

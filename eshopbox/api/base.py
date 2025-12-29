@@ -28,7 +28,7 @@ class BaseAPI:
         url: str,
         params: Optional[Dict] = None,
         json: Optional[Dict] = None,
-        **kwargs
+        **kwargs,
     ) -> Any:
         """
         Make HTTP request with authentication and error handling
@@ -49,14 +49,15 @@ class BaseAPI:
             NotFoundError: If resource is not found
         """
         headers = self.auth.get_headers()
-        if 'headers' in kwargs:
-            headers.update(kwargs['headers'])
-        kwargs['headers'] = headers
+        print(">Headers-----------", headers)
+        if "headers" in kwargs:
+            headers.update(kwargs["headers"])
+        kwargs["headers"] = headers
 
         if params:
-            kwargs['params'] = params
+            kwargs["params"] = params
         if json:
-            kwargs['json'] = json
+            kwargs["json"] = json
 
         try:
             response = requests.request(method, url, **kwargs)
@@ -69,9 +70,7 @@ class BaseAPI:
             elif response.status_code >= 400:
                 error_msg = self._extract_error_message(response)
                 raise APIError(
-                    error_msg,
-                    status_code=response.status_code,
-                    response=response.text
+                    error_msg, status_code=response.status_code, response=response.text
                 )
 
             response.raise_for_status()
@@ -88,6 +87,6 @@ class BaseAPI:
         """Extract error message from response"""
         try:
             error_data = response.json()
-            return error_data.get('message', error_data.get('error', response.text))
-        except:
-            return response.text or f"HTTP {response.status_code} Error"
+            return error_data.get("message", error_data.get("error", response.text))
+        except Exception as e:
+            return response.text or f"HTTP {response.status_code} Error : {e}"

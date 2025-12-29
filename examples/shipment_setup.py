@@ -5,6 +5,7 @@ Example: Track shipment using EShopBox SDK
 from eshopbox import EShopBoxSDK
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 
@@ -70,7 +71,7 @@ def create_shipment(sdk):
             "intransit": "2020-03-19 14:50:29",
             "dispatched": "2020-03-19 06:30:34",
             "packed": "2020-03-19 01:54:23",
-            "created": "2020-03-18 21:22:57"
+            "created": "2020-03-18 21:22:57",
         },
         "orderExternalCreatedAt": "2020-03-18 21:22:52",
         "shippingAddress": {
@@ -83,7 +84,7 @@ def create_shipment(sdk):
             "countryCode": "IN",
             "countryName": "India",
             "contactPhone": "xxxxxxxxxx",
-            "email": "xxxxxxxxxxxxxxx@gmail.com"
+            "email": "xxxxxxxxxxxxxxx@gmail.com",
         },
         "id": 1583574,
         "isCOD": "1",
@@ -108,12 +109,12 @@ def create_shipment(sdk):
                         "location": "Gurgaon_Bilaspur_P (Haryana)",
                         "clickpost_status_code": 5,
                         "remark": "Shipment Picked Up from Client Location",
-                        "timestamp": "2020-03-19T13:48:28Z"
+                        "timestamp": "2020-03-19T13:48:28Z",
                     },
                     "destination_hub_inscan_ts": None,
                     "courier_partner_edd": None,
-                    "is_rvp": None
-                }
+                    "is_rvp": None,
+                },
             }
         },
         "packed_date": "2020-03-19 01:54:23",
@@ -161,15 +162,15 @@ def create_shipment(sdk):
                         "sku": "ABD-123",
                         "esin": "2316W3I7KID",
                         "status": "DRAFT",
-                        "weightUnit": "g"
-                    }
+                        "weightUnit": "g",
+                    },
                 },
                 "productImageUrl": "https://s3-eu-west-1.amazonaws.com/imagebucketeshopbox/Uzip/219045371-1-40/1.JPG",
                 "productUrl": "https://montecarlo.auperator.co/product/edit-product/BBAPLMC144105_44",
                 "invoiceTotal": 4049.09,
                 "shippingCharges": 0,
                 "giftWrapCharges": 0,
-                "cashOnDeliveryCharges": 0
+                "cashOnDeliveryCharges": 0,
             }
         ],
     }
@@ -184,10 +185,10 @@ def update(sdk):
 
 def main():
     sdk = EShopBoxSDK(
-        workspace=os.getenv('ESHOPBOX_WORKSPACE', ''),
-        client_id=os.getenv('ESHOPBOX_CLIENT_ID', ''),
-        client_secret=os.getenv('ESHOPBOX_SECRET_ID', ''),
-        refresh_token=os.getenv('ESHOPBOX_REFRESH_TOKEN', '')
+        workspace=os.getenv("ESHOPBOX_WORKSPACE", ""),
+        client_id=os.getenv("ESHOPBOX_CLIENT_ID", ""),
+        client_secret=os.getenv("ESHOPBOX_SECRET_ID", ""),
+        refresh_token=os.getenv("ESHOPBOX_REFRESH_TOKEN", ""),
     )
     # get_all_shipments(sdk)
     # get_shipment(sdk)

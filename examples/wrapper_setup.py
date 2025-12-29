@@ -5,22 +5,20 @@ Example: Setup Wrapper using EShopBox SDK
 from eshopbox import EShopBoxSDK
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 
 def order(sdk):
     payload = {
-        "channelId": os.getenv('ESHOPBOX_EXTERNAL_CHANNEL_ID'),
+        "channelId": os.getenv("ESHOPBOX_EXTERNAL_CHANNEL_ID"),
         "customerOrderId": "OD119208447831346001",
         "shipmentId": "OD119208447831346001-4380-3659",
         "orderDate": "2024-01-01 09:00:00",
         "isCOD": True,
         "invoiceTotal": 4049.09,
         "shippingMode": "Eshopbox Standard",
-        "invoice": {
-            "number": "C00011323A000002",
-            "date": "2024-01-04 09:00:00"
-        },
+        "invoice": {"number": "C00011323A000002", "date": "2024-01-04 09:00:00"},
         "ewaybillNumber": "123422267332",
         "balanceDue": 0,
         "shippingAddress": {
@@ -34,7 +32,7 @@ def order(sdk):
             "country": "India",
             "contactPhone": "xxxxxxxxxx",
             "email": "xxxxxxxxxxxxxxx@gmail.com",
-            "gstin": "344633257673"
+            "gstin": "344633257673",
         },
         "billingIsShipping": True,
         "billingAddress": {
@@ -47,7 +45,7 @@ def order(sdk):
             "countryCode": "IN",
             "countryName": "India",
             "contactPhone": "xxxxxxxxxx",
-            "email": "xxxxxxxxxxxxxxx@gmail.com"
+            "email": "xxxxxxxxxxxxxxx@gmail.com",
         },
         "items": [
             {
@@ -93,22 +91,22 @@ def order(sdk):
                         "sku": "KW-123",
                         "esin": "23YCU3I7KIF",
                         "status": "DRAFT",
-                        "weightUnit": "g"
-                    }
+                        "weightUnit": "g",
+                    },
                 },
                 "productImageUrl": "https://kw-live.s3.amazonaws.com/media/post_images/upload/product_pic_d4bda7fb-e2f1-4061-b2ef-e4a5bd7618b8.webp",
                 "productUrl": "https://kashwork.com/d/jewellery/imitation_jewellery/women_imitation_jewellery_/women_necklace_sets/dabka_jewellery_set/161291130/598744146",
                 "invoiceTotal": 4049.09,
                 "shippingCharges": 0,
                 "giftWrapCharges": 0,
-                "cashOnDeliveryCharges": 0
+                "cashOnDeliveryCharges": 0,
             }
         ],
         "shipmentDimension": {
             "length": 13.12,
             "breadth": 15.32,
             "height": 56.39,
-            "weight": 201.23
+            "weight": 201.23,
         },
         "pickupLocation": {
             "locationCode": "MCFL00395",
@@ -122,7 +120,7 @@ def order(sdk):
             "state": "HARYANA",
             "country": "India",
             "pincode": "121005",
-            "gstin": "06AAFCM7888Q1ZE"
+            "gstin": "06AAFCM7888Q1ZE",
         },
         "package": {
             "type": "box",
@@ -131,8 +129,8 @@ def order(sdk):
             "length": 45.00,
             "breadth": 54.13,
             "height": 45.22,
-            "weight": 45.80
-        }
+            "weight": 45.80,
+        },
     }
     response = sdk.wrapper.order(payload)
     print("Response: ", response)
@@ -147,10 +145,7 @@ def shipping_return(sdk):
         "isCOD": True,
         "invoiceTotal": 4049.09,
         "shippingMode": "Standard",
-        "invoice": {
-            "number": "C00011323A000002",
-            "date": "2023-06-02 15:39:11"
-        },
+        "invoice": {"number": "C00011323A000002", "date": "2023-06-02 15:39:11"},
         "ewaybillNumber": "",
         "shippingAddress": {
             "locationCode": "MCFL00395",
@@ -164,7 +159,7 @@ def shipping_return(sdk):
             "pincode": "121005",
             "state": "HARYANA",
             "country": "India",
-            "gstin": "06AAFCM7888Q1ZE"
+            "gstin": "06AAFCM7888Q1ZE",
         },
         "items": [
             {
@@ -194,16 +189,16 @@ def shipping_return(sdk):
                         "check_price_tag",
                         "check_packaging_box",
                         "check_damaged",
-                        "check_used"
-                    ]
-                }
+                        "check_used",
+                    ],
+                },
             }
         ],
         "returnDimension": {
             "length": 13.12,
             "breadth": 15.32,
             "height": 56.39,
-            "weight": 201.23
+            "weight": 201.23,
         },
         "pickupLocation": {
             "customerName": "John Doe",
@@ -214,22 +209,20 @@ def shipping_return(sdk):
             "pincode": "560005",
             "country": "India",
             "contactPhone": "9998889998",
-            "email": "johndoe@gmail.com"
-        }
+            "email": "johndoe@gmail.com",
+        },
     }
     response = sdk.wrapper.shipping_return(payload)
     print("Response: ", response)
 
 
 def cancel_tracking(sdk):
-    payload = {
-        "trackingId": "1231244"
-    }
+    payload = {"trackingId": "1231244"}
     response = sdk.wrapper.cancel_tracking(payload)
     print("Response: ", response)
 
 
-def tracking_details(sdk):    
+def tracking_details(sdk):
     response = sdk.wrapper.tracking_details("OD119208447831346000-4380-3659")
     print("Response: ", response)
 
@@ -248,8 +241,8 @@ def webhook_register(sdk):
             "sample-header-key": "test875876",
             "authorization": "Bearer abcdef123456",
             "custom-header": "customValue",
-            "content-type": "application/json"
-        }
+            "content-type": "application/json",
+        },
     }
 
     response = sdk.wrapper.webhook_register(payload, ProxyHost="your_proxy_host_value")
@@ -259,10 +252,10 @@ def webhook_register(sdk):
 def main():
     # Initialize SDK
     sdk = EShopBoxSDK(
-        workspace=os.getenv('ESHOPBOX_WORKSPACE', ''),
-        client_id=os.getenv('ESHOPBOX_CLIENT_ID', ''),
-        client_secret=os.getenv('ESHOPBOX_SECRET_ID', ''),
-        refresh_token=os.getenv('ESHOPBOX_REFRESH_TOKEN', '')
+        workspace=os.getenv("ESHOPBOX_WORKSPACE", ""),
+        client_id=os.getenv("ESHOPBOX_CLIENT_ID", ""),
+        client_secret=os.getenv("ESHOPBOX_SECRET_ID", ""),
+        refresh_token=os.getenv("ESHOPBOX_REFRESH_TOKEN", ""),
     )
     # order(sdk)
     # shipping_return(sdk)

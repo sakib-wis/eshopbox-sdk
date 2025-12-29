@@ -102,7 +102,10 @@ class SettingsAPI(BaseAPI):
         url = f"{self.base_url}/api/v1/user-account-mapping/{id}"
         return self._make_request("PUT", url, json=data)
 
-    def get_team_member(self, id,) -> Dict:
+    def get_team_member(
+        self,
+        id,
+    ) -> Dict:
         """Update an existing product."""
         url = f"{self.base_url}/api/v1/user-account-mapping/{id}"
         return self._make_request("GET", url)

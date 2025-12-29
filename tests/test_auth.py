@@ -1,7 +1,3 @@
-import pytest
-from eshopbox.exceptions import APIError
-
-
 class TestAuthAPI:
     pass
     # def test_generate_token_success(self, sdk, requests_mock):

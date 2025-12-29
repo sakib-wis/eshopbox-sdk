@@ -31,11 +31,7 @@ class EShopBoxSDK:
     """
 
     def __init__(
-        self,
-        workspace: str,
-        client_id: str,
-        client_secret: str,
-        refresh_token: str
+        self, workspace: str, client_id: str, client_secret: str, refresh_token: str
     ):
         """
         Initialize EShopBox SDK
@@ -48,7 +44,6 @@ class EShopBoxSDK:
         """
         self.workspace = workspace
         self.auth = EShopBoxAuth(client_id, client_secret, refresh_token)
-
         # Initialize API modules
         self.orders = OrdersAPI(workspace, self.auth)
         self.consignments = ConsignmentsAPI(workspace, self.auth)

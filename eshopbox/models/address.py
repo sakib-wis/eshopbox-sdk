@@ -12,7 +12,9 @@ class Address(BaseModel):
     line2: Optional[str] = Field(None, description="Address line 2")
     city: str = Field(..., description="City name")
     state: str = Field(..., description="State name")
-    pincode: str = Field(..., min_length=6, max_length=6, description="6-digit postal code")
+    pincode: str = Field(
+        ..., min_length=6, max_length=6, description="6-digit postal code"
+    )
     phone: str = Field(..., min_length=10, max_length=15, description="Contact number")
     email: Optional[str] = Field(None, description="Email address")
 

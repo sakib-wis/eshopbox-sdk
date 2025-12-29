@@ -5,6 +5,7 @@ Example: Track shipment using EShopBox SDK
 from eshopbox import EShopBoxSDK
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 
@@ -24,18 +25,16 @@ def create_label_and_awb(sdk):
                 "compensationCessPercentage": 0,
                 "integratedGstPercentage": 0,
                 "stateGstPercentage": 0,
-                "unionTerritoryGstPercentage": 0
+                "unionTerritoryGstPercentage": 0,
             }
-        ]
+        ],
     }
     order_status_update = sdk.order_status_update.create_label_and_awb(payload)
     print(order_status_update)
 
 
 def get_awb_and_courier_name(sdk):
-    params = {
-        "orderItemIds": "49252941,49252802"
-    }
+    params = {"orderItemIds": "49252941,49252802"}
     order_status_update = sdk.order_status_update.get_awb_and_courier_name(params)
     print(order_status_update)
 
@@ -51,7 +50,7 @@ def dispatch_shipment(sdk):
                 "integratedGstPercentage": 0,
                 "stateGstPercentage": 0,
                 "taxRate": 0,
-                "unionTerritoryGstPercentage": 0
+                "unionTerritoryGstPercentage": 0,
             }
         ],
         "selfShipping": {
@@ -60,8 +59,8 @@ def dispatch_shipment(sdk):
             "invoiceDate": "2017-01-02T08:12:53",
             "invoiceNumber": "string",
             "tentativeDeliveryDate": "2017-01-02T08:12:53",
-            "trackingId": "123455"
-        }
+            "trackingId": "123455",
+        },
     }
     order_status_update = sdk.order_status_update.dispatch_shipment(payload)
     print(order_status_update)
@@ -87,11 +86,11 @@ def update(sdk):
                 "status": "In Transit",
                 "status_code": 8,
                 "location": "GGN_DPC (Haryana)",
-                "timestamp": "2018-07-12T12:58:40.910000Z"
+                "timestamp": "2018-07-12T12:58:40.910000Z",
             }
         },
         "timestamp": "2018-07-12T11:53:39.902000Z",
-        "remark": "Bagged at destination city PC"
+        "remark": "Bagged at destination city PC",
     }
     order_status_update = sdk.order_status_update.update(payload)
     print(order_status_update)
@@ -99,10 +98,10 @@ def update(sdk):
 
 def main():
     sdk = EShopBoxSDK(
-        workspace=os.getenv('ESHOPBOX_WORKSPACE', ''),
-        client_id=os.getenv('ESHOPBOX_CLIENT_ID', ''),
-        client_secret=os.getenv('ESHOPBOX_SECRET_ID', ''),
-        refresh_token=os.getenv('ESHOPBOX_REFRESH_TOKEN', '')
+        workspace=os.getenv("ESHOPBOX_WORKSPACE", ""),
+        client_id=os.getenv("ESHOPBOX_CLIENT_ID", ""),
+        client_secret=os.getenv("ESHOPBOX_SECRET_ID", ""),
+        refresh_token=os.getenv("ESHOPBOX_REFRESH_TOKEN", ""),
     )
 
     # create_label_and_awb(sdk)

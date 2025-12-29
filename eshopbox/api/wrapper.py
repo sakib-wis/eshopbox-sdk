@@ -1,6 +1,6 @@
 """Wrapper API module"""
 
-from typing import Dict, Optional, List
+from typing import Dict
 from eshopbox.api.base import BaseAPI
 
 
@@ -69,8 +69,6 @@ class WrapperAPI(BaseAPI):
         Returns:
             Dict containing tracking information
         """
-        headers = {
-            "ProxyHost": ProxyHost
-        }
+        headers = {"ProxyHost": ProxyHost}
         url = f"{self.base_url}/api/v1/webhook"
         return self._make_request("POST", url, json=body, headers=headers)

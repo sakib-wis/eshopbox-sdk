@@ -5,25 +5,24 @@ Example: Setup order using EShopBox SDK
 from eshopbox import EShopBoxSDK
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 
 def get_all_orders(sdk):
-    params = {
-        'filters': 'account=kashwork-ecommerce'
-    }
+    params = {"filters": "account=kashwork-ecommerce"}
     response = sdk.orders.get_all(page=1, **params)
     print("Response: ", response)
 
 
 def get_order(sdk):
-    response = sdk.orders.get('OD119208447831346001')
+    response = sdk.orders.get("OD119208447831346001")
     print("Response: ", response)
 
 
 def create_order(sdk):
     order = {
-        "externalChannelID": os.getenv('ESHOPBOX_EXTERNAL_CHANNEL_ID'),
+        "externalChannelID": os.getenv("ESHOPBOX_EXTERNAL_CHANNEL_ID"),
         "customerOrderNumber": "OD119208447831346002",
         "orderDate": "2020-02-29 15:39:11",
         "isCOD": "0",
@@ -44,7 +43,7 @@ def create_order(sdk):
             "countryCode": "IN",
             "countryName": "India",
             "contactPhone": "xxxxxxxxxx",
-            "email": "xxxxxxxxxxxxxxx@gmail.com"
+            "email": "xxxxxxxxxxxxxxx@gmail.com",
         },
         "billingAddress": {
             "customerName": "Sakib Malik",
@@ -56,7 +55,7 @@ def create_order(sdk):
             "countryCode": "IN",
             "countryName": "India",
             "contactPhone": "xxxxxxxxxx",
-            "email": "xxxxxxxxxxxxxxx@gmail.com"
+            "email": "xxxxxxxxxxxxxxx@gmail.com",
         },
         "items": [
             {
@@ -77,12 +76,12 @@ def create_order(sdk):
                     "length": 11.13,
                     "width": 8.13,
                     "taxPercentage": 12.00,
-                    "hsnCode": "HSN1324"
+                    "hsnCode": "HSN1324",
                 },
                 "productUrl": "https://kashwork.com/d/jewellery/imitation_jewellery/women_imitation_jewellery_/women_necklace_sets/dabka_jewellery_set/161291130/598744146",
-                "productImageUrl": "https://kw-live.s3.amazonaws.com/media/post_images/upload/product_pic_d4bda7fb-e2f1-4061-b2ef-e4a5bd7618b8.webp"
+                "productImageUrl": "https://kw-live.s3.amazonaws.com/media/post_images/upload/product_pic_d4bda7fb-e2f1-4061-b2ef-e4a5bd7618b8.webp",
             }
-        ]
+        ],
     }
     response = sdk.orders.create(order)
     print("Response: ", response)
@@ -94,7 +93,7 @@ def update_order(sdk):
 
 def cancel_order(sdk):
     cancel_data = {
-        "externalChannelID": os.getenv('ESHOPBOX_EXTERNAL_CHANNEL_ID'),
+        "externalChannelID": os.getenv("ESHOPBOX_EXTERNAL_CHANNEL_ID"),
         "customerOrderNumber": "OD119208447831346002",
         "actor": "xxxxxxxxxxxxxxx@gmail.com",
         "reason": "Cancelled By Customer",
@@ -105,26 +104,26 @@ def cancel_order(sdk):
                 "itemID": "KW-100",
                 "quantity": 1,
                 "productName": "Keyboard",
-                "remark": "cancelled by customer"
+                "remark": "cancelled by customer",
             }
-        ]
+        ],
     }
     response = sdk.orders.cancel(cancel_data)
     print("Response: ", response)
 
 
 def get_invoice(sdk):
-    response = sdk.orders.get_invoice('OD119208447831346002')
+    response = sdk.orders.get_invoice("OD119208447831346002")
     print("Response: ", response)
 
 
 def main():
     # Initialize SDK
     sdk = EShopBoxSDK(
-        workspace=os.getenv('ESHOPBOX_WORKSPACE', ''),
-        client_id=os.getenv('ESHOPBOX_CLIENT_ID', ''),
-        client_secret=os.getenv('ESHOPBOX_SECRET_ID', ''),
-        refresh_token=os.getenv('ESHOPBOX_REFRESH_TOKEN', '')
+        workspace=os.getenv("ESHOPBOX_WORKSPACE", ""),
+        client_id=os.getenv("ESHOPBOX_CLIENT_ID", ""),
+        client_secret=os.getenv("ESHOPBOX_SECRET_ID", ""),
+        refresh_token=os.getenv("ESHOPBOX_REFRESH_TOKEN", ""),
     )
 
     # get_all_orders(sdk)

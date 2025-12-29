@@ -50,9 +50,7 @@ class ProductsAPI(BaseAPI):
     def get_brand(self, id: int) -> Dict:
         """Update an existing product."""
         url = f"{self.base_url}/api/v1/brand"
-        params = {
-            "id": id
-        }
+        params = {"id": id}
         return self._make_request("GET", url, params=params)
 
     def create_brand(self, product_data: Dict) -> Dict:
