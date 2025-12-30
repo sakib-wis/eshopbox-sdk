@@ -49,7 +49,6 @@ class BaseAPI:
             NotFoundError: If resource is not found
         """
         headers = self.auth.get_headers()
-        print(">Headers-----------", headers)
         if "headers" in kwargs:
             headers.update(kwargs["headers"])
         kwargs["headers"] = headers

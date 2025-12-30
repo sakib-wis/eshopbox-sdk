@@ -71,9 +71,9 @@ class EShopBoxAuth:
         Returns:
             str: Valid access token
         """
-        self._access_token = self.cache_token.get_token("ESHOPBOX_TOKEN")
+        self._access_token = self.cache_token.get_token("ESHOPBOX_TOKEN") or None
         self._token_expires_at = datetime.now() + timedelta(
-            seconds=float(self.cache_token.get_token("ESHOPBOX_EXPIRES_TOKEN"))
+            seconds=float(self.cache_token.get_token("ESHOPBOX_EXPIRES_TOKEN") or 2592000.0)
         )
         if self._should_refresh_token():
             self.generate_token()
