@@ -1,6 +1,6 @@
 """Version information for EShopBox SDK"""
 
-__version__ = "1.1.10"
+__version__ = "1.1.11"
 __author__ = "Sakib Mailk"
 __email__ = "sakibwis.wis@gmail.com"
 __license__ = "MIT"

@@ -222,8 +222,8 @@ def cancel_tracking(sdk):
     print("Response: ", response)
 
 
-def tracking_details(sdk):
-    response = sdk.wrapper.tracking_details("OD119208447831346000-4380-3659")
+def tracking_details(sdk: EShopBoxSDK):
+    response = sdk.wrapper.tracking_details("8476711707786")
     print("Response: ", response)
 
 
@@ -260,8 +260,8 @@ def main():
     # order(sdk)
     # shipping_return(sdk)
     # cancel_tracking(sdk)
-    # tracking_details(sdk)
-    webhook_register(sdk)
+    tracking_details(sdk)
+    # webhook_register(sdk)
 
 
 if __name__ == "__main__":
